@@ -6,7 +6,7 @@
 
 #### 예제
 ```typescript
-import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse } from './clova'
+import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse } from 'clovex'
 
 class MyIntentListener extends IntentListener {
     @IntentHandler("HelloIntent")
