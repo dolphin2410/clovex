@@ -7,7 +7,7 @@
     "start": "ts-node src/app.ts"
   },
   "author": "dolphin2410",
-  "license": "GPL-3.0",
+  "license": "APACHE2",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.18.0",
