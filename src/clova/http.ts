@@ -22,12 +22,12 @@ export class ClovaRequest {
 
     // 익스텐션 호출 시
     onExtensionCall(response: ClovaResponse) {
-        response.speak("무엇을 도와드릴까요?")
+      ClovaExtension.callHandlers.forEach(f => f(response))
     }
 
     // 익스텐션 내에서 명령어
     onIntentRequest(response: ClovaResponse) {
-        const intent = this.body.request.intent.name
+        const intentName = this.body.request.intent.name
         const slots = this.body.request.intent.slots
 
         ClovaExtension.listeners.forEach(listener => {
@@ -35,16 +35,17 @@ export class ClovaRequest {
           
           let intent: string;
           for (intent in handlers) {
-            let functions: Function[] = handlers[intent]
-            functions.forEach(f => f(intent, slots, response))
+              if (intent == intentName) {
+                let functions: Function[] = handlers[intent]
+                functions.forEach(f => f(intent, slots, response))
+              }
           }
         })
     }
 
     // 세션 종료
     onSessionEnd(response: ClovaResponse) {
-        response.speak('다음에 또 만나요')
-        response.endSession()
+        ClovaExtension.sessionEndHandlers.forEach(f => f(response))
     }
 }
 

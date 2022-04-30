@@ -1,10 +1,15 @@
-### Clovex
-#### Utility for Naver Clova Extensions
+# Clovex
+## Utility for Naver Clova Extensions
 
-#### 사용방법
+### 설치
+```bash
+$ npm i clovex
+```
+
+### 사용방법
 나중에 작성할 예정
 
-#### 예제
+### 예제
 ```typescript
 import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse } from 'clovex'
 
@@ -21,4 +26,14 @@ class MyIntentListener extends IntentListener {
 }
 
 ClovaExtension.addListener(new MyIntentListener())
+
+ClovaExtension.onExtensionFire(response => {
+    response.speak("무엇을 도와드릴까요?")
+    response.continueSession({})
+})
+
+ClovaExtension.onSessionEnd(response => {
+    response.speak('다음에 또 만나요')
+    response.endSession()
+})
 ```
