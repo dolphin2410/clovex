@@ -3,7 +3,7 @@
 
 ### 설치
 ```bash
-$ npm i clovex
+$ npm i @narwhallab/clovex
 ```
 
 ### 사용방법
