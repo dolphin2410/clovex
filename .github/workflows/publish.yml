@@ -10,6 +10,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
+      - run: |
+        tsc
       - name: Upload to NPM
         continue-on-error: true
         uses: JS-DevTools/npm-publish@v1
