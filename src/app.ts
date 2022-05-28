@@ -1,36 +1,15 @@
 import 'reflect-metadata'
 import express from 'express'
-import { handleClova } from './clova'
 import bodyParser from 'body-parser'
-import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse } from './clova'
-import { exec } from 'child_process'
+import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse, handleClova } from './clova'
 
 let app = express()
 app.use(bodyParser.json())
 
 class MyIntentListener extends IntentListener {
-    @IntentHandler("SampleCustomIntent")
-    onSampleCustom(_intentName: string, _slots: any, response: ClovaResponse) {
+    @IntentHandler("MyIntent")
+    onMyIntent(_intentName: string, _slots: any, response: ClovaResponse) {
         response.addSpeach("안녕하세요")
-        response.continueSession({
-            previousIntent: "SampleCustomIntent"
-        })
-    }
-
-    @IntentHandler("ThrowDiceIntent")
-    onDice(_intentName: string, _slots: any, response: ClovaResponse) {
-        response.addSpeach("주사위 굴러갑니다!")
-    }
-
-    @IntentHandler("Clova.GuideIntent")
-    onGuide(intentName: string, slots: any, response: ClovaResponse) {
-        response.addSpeach("가이드")
-    }
-
-    @IntentHandler("ComputerOff")
-    onOff(intentName: string, slots: any, response: ClovaResponse) {
-        response.addSpeach("컴퓨터 끄는 중")
-        exec("shutdown /s")
     }
 }
 

@@ -1,12 +1,12 @@
 {
-  "name": "clovex",
-  "version": "1.0.2",
+  "name": "@narwhallab/clovex",
+  "version": "0.0.1",
   "description": "",
-  "main": "src/app.ts",
+  "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/app.ts"
   },
-  "author": "dolphin2410",
+  "author": "octomarine",
   "license": "APACHE2",
   "dependencies": {
     "body-parser": "^1.18.2",
