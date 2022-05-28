@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: '16'
       - run: |
-        tsc
+          tsc
       - name: Upload to NPM
         continue-on-error: true
         uses: JS-DevTools/npm-publish@v1
