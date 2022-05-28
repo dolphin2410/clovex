@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import express from 'express'
 import bodyParser from 'body-parser'
-import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse, handleClova } from './clova'
+import { ClovaExtension, IntentHandler, IntentListener, ClovaResponse, handleClova } from './index'
 
 let app = express()
 app.use(bodyParser.json())
